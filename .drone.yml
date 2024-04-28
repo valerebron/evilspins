@@ -20,9 +20,8 @@ steps:
     - su $USERNAME -c "rsync -av --exclude  ./node_modules /drone/src/ $WORKDIR"
     - cd $WORKDIR
     - npm install
-    - ls -lha
     - sed -i "/MEDIA_DIR/d" .env
-    - /opt/pegaz/cli.pegaz.sh up $DRONE_REPO_NAME
+    - bash /opt/pegaz/cli.pegaz.sh up $DRONE_REPO_NAME
 
 volumes:
   - name: pegaz
