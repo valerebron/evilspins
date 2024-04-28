@@ -2,7 +2,7 @@
     <section class="splash-screen flex items-center flex-col">
       <img class="logo" src="/logo.svg">
       <div class="shadow screen" />
-      <div class="noise screen" />
+      <!-- <div class="noise screen" /> -->
       <video class="animation screen" src="/sloughi-run-loop.webm" loop autoplay muted ref="animation" />
     </section>
 </template>
