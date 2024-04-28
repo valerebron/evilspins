@@ -1,0 +1,32 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: deploy
+    image: docker:dind
+    volumes:
+      - name: docker
+        path: /var/run/docker.sock
+      - name: pegaz
+        path: /opt/pegaz
+    commands:
+    - apk add --upgrade npm bash findutils rsync sed
+    - source /opt/pegaz/config.sh
+    - adduser -D $USERNAME
+    - WORKDIR="/opt/pegaz/services/$DRONE_REPO_NAME"
+    - rm -rf $WORKDIR
+    - su $USERNAME -c "mkdir $WORKDIR"
+    - su $USERNAME -c "rsync -av --exclude  ./node_modules /drone/src/ $WORKDIR"
+    - cd $WORKDIR
+    - npm install
+    - sed -i "/MEDIA_DIR/d" .env
+    - /opt/pegaz/cli.pegaz.sh up $DRONE_REPO_NAME
+
+volumes:
+  - name: pegaz
+    host:
+      path: /opt/pegaz
+  - name: docker
+    host:
+      path: /var/run/docker.sock
