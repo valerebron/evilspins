@@ -25,7 +25,7 @@ body {
   z-index: 1;
   object-fit: cover;
   opacity: .8;
-  opacity: 0;
+  /* opacity: 0; */
 }
 .noise {
   z-index: 2;
