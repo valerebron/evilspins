@@ -2,7 +2,7 @@
     <section class="splash-screen flex items-center flex-col">
       <img class="logo" src="/logo.svg">
       <div class="shadow screen" />
-      <!-- <div class="noise screen" /> -->
+      <div class="noise screen" />
       <video class="animation screen" src="/sloughi-run-loop.webm" loop autoplay muted ref="animation" />
     </section>
 </template>
@@ -31,11 +31,11 @@ body {
   z-index: 2;
   background-size: 300px;
   background-image: url("~/public/noise.gif");
-  opacity: 0.1;
+  opacity: 0.05;
 }
 .shadow {
   z-index: 3;
-  box-shadow: 0 0  200px 150px rgba(3,0,0,1) inset;
+  box-shadow: rgb(0, 0, 0) 0px 0px 170px 70px inset;
   opacity: .9;
 }
 .logo {
@@ -46,5 +46,8 @@ body {
   max-width: 80%;
   transform: translate(-50%, -50%);
   filter: drop-shadow(8px 8px 0 rgb(0 0 0 / 0.8));
+}
+.hide {
+  opacity: 0;
 }
 </style>
