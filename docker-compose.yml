@@ -16,5 +16,5 @@ services:
 
 networks:
   default:
-    name: docker-web
+    name: dockerweb
     external: true
