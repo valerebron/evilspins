@@ -16,5 +16,5 @@ services:
 
 networks:
   default:
-    name: pegaz
+    name: docker-web
     external: true
