@@ -9,4 +9,6 @@ jobs:
         with:
           node-version: '14'
       - run: ls -lha
+      - run: node -v
       - run: docker -v
+      - run : ls /root/docker-web
