@@ -9,3 +9,4 @@ jobs:
         with:
           node-version: '14'
       - run: whoami
+      - run: docker ps
